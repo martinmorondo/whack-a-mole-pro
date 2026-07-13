@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+    background: rgba(169, 231, 231, 0.44);
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Amatic SC', cursive;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 10rem;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .btn-45,
+    .btn-45 *,
+    .btn-45 :after,
+    .btn-45 :before,
+    .btn-45:after,
+    .btn-45:before {
+    border: 0 solid;
+    box-sizing: border-box;
+    }
+    
+    .btn-45 {
+        margin-right: 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 5rem;
+        -webkit-tap-highlight-color: transparent;
+        background-color: #000;
+        background-image: none;
+        color: #fff;
+        cursor: pointer;
+        font-family: ui-sans-serif, system-ui;
+        font-size: 100%;
+        font-weight: 900;
+        line-height: 1.5;
+        padding: 0;
+    }
+
+    .btn-45:disabled {
+    cursor: default;
+    }
+
+    .btn-45:-moz-focusring {
+    outline: auto;
+    }
+
+    .btn-45 svg {
+    display: block;
+    }
+
+    .btn-45 [hidden] {
+    display: none;
+    }
+
+    .btn-45 {
+    border: 1px solid;
+    border-radius: 999px;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    padding: 1.5rem 10rem;
+    position: relative;
+    text-transform: uppercase;
+    }
+
+    .btn-45 span {
+    font-weight: 900;
+    mix-blend-mode: difference;
+    }
+    
+    .btn-45:after,
+    .btn-45:before {
+    background: #fff;
+    content: "";
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+    width: 100%;
+    will-change: transform;
+    }
+
+    .btn-45:after {
+    background: #dedede;
+    transition-delay: 0.1s;
+    z-index: -1;
+    }
+
+    .btn-45:hover:after,
+    .btn-45:hover:before {
+    transform: translateX(100%);
+    }
+
+    .btn-25,
+    .btn-25 *,
+    .btn-25 :after,
+    .btn-25 :before,
+    .btn-25:after,
+    .btn-25:before {
+      border: 0 solid;
+      box-sizing: border-box;
+    }
+    .btn-25 {
+      margin-left: 10px;
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #000;
+      background-image: none;
+      color: #fff;
+      cursor: pointer;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-size: 100%;
+      font-weight: 900;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .btn-25:disabled {
+      cursor: default;
+    }
+    .btn-25:-moz-focusring {
+      outline: auto;
+    }
+    .btn-25 svg {
+      display: block;
+    }
+    .btn-25 [hidden] {
+      display: none;
+    }
+    .btn-25 {
+      --background: #000;
+      background: none;
+      overflow: hidden;
+      padding: 2rem 9rem;
+      position: relative;
+    }
+    .btn-25 span {
+      display: block;
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+    .btn-25:after,
+    .btn-25:before {
+      --tilt: 20px;
+      background: #fff;
+      -webkit-clip-path: polygon(0 50%, 0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
+      clip-path: polygon(0 50%, 0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
+      content: "";
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: -webkit-clip-path 0.2s ease;
+      transition: clip-path 0.2s ease;
+      transition: clip-path 0.2s ease, -webkit-clip-path 0.2s ease;
+      width: 100%;
+      z-index: -1;
+    }
+    .btn-25:after {
+      --thickness: 5px;
+      background: var(--background);
+      height: calc(100% - var(--thickness) * 2);
+      left: var(--thickness);
+      top: var(--thickness);
+      width: calc(100% - var(--thickness) * 2);
+    }
+    .btn-25:hover:after,
+    .btn-25:hover:before {
+      -webkit-clip-path: polygon(
+        0 50%,
+        var(--tilt) 0,
+        calc(100% - var(--tilt)) 0,
+        100% 50%,
+        calc(100% - var(--tilt)) 100%,
+        var(--tilt) 100%
+      );
+      clip-path: polygon(
+        0 50%,
+        var(--tilt) 0,
+        calc(100% - var(--tilt)) 0,
+        100% 50%,
+        calc(100% - var(--tilt)) 100%,
+        var(--tilt) 100%
+      );
+    }
+     
+  .score {
+    background: #96988d6d;
+    padding: 0 3rem;
+    line-height: 1;
+    border-radius: 1rem;
+  }
+  
+  .container {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  
+  .hole {
+    flex: 1 0 33.33%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .mole-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s;
+  padding: 0;
+  z-index: 1;
+}
+
+.hole.up .mole-btn {
+  top: 0;
+}
+
+.mole {
+  width: 60%;
+  pointer-events: none; /* Para que el clic vaya al botón */
+}
+
+.dirt {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  height: 70px;
+  z-index: 2;
+  pointer-events: none;
+}
+  
+  .hole.up .mole {
+    top: 0;
+  }
+
+  .timer {
+    background-color:#96988d6d;
+    margin: 20px;
+    padding: 10px;
+    font-size: 50px;
+    border-radius: 25px;
+  }
+
+  @media screen and (max-width: 767px) {
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  
+    .score {
+      display: block;
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+  
+    .btn-45,
+    .btn-25 {
+      width: auto;
+      padding: 0.5rem 2rem;
+      font-size: 1.5rem;
+    }
+  
+    .timer {
+      font-size: 3rem;
+      margin: 2rem;
+    }
+
+    .container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .hole {
+      width: 25%;
+    }
+  }
+  
