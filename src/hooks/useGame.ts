@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import popSound from '../assets/pop.mp3';
+import whackSound from '../assets/whack.mp3';
 
 const GAME_DURATION = 15;
 const HOLES_COUNT = 6;
@@ -12,6 +14,14 @@ export const useGame = () => {
   const lastHoleRef = useRef<number | null>(null);
   const peepTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Función helper para reproducir audio superpuesto
+  const playAudio = useCallback((audioFile: string) => {
+    const audio = new Audio(audioFile);
+    audio.volume = 0.4; // Ajustamos el volumen para que no sea molesto
+    // El .catch evita errores en consola si el navegador bloquea el autoplay
+    audio.play().catch((err) => console.log('Audio bloqueado por el navegador', err));
+  }, []);
+
   const randomTime = (min: number, max: number) => Math.round(Math.random() * (max - min) + min);
 
   const randomHole = useCallback((): number => {
@@ -24,16 +34,18 @@ export const useGame = () => {
   }, []);
 
   const peep = useCallback(() => {
-    const time = randomTime(500, 1000); // Tiempos ajustados para mejor UX
+    const time = randomTime(500, 1000);
     const hole = randomHole();
     
+    // Reproducir sonido al salir
+    playAudio(popSound);
     setActiveHole(hole);
 
     peepTimeoutRef.current = setTimeout(() => {
       setActiveHole(null);
       if (isPlaying) peep();
     }, time);
-  }, [isPlaying, randomHole]);
+  }, [isPlaying, randomHole, playAudio]);
 
   useEffect(() => {
     if (isPlaying) {
@@ -73,8 +85,10 @@ export const useGame = () => {
 
   const whack = (holeIndex: number) => {
     if (holeIndex === activeHole) {
+      // Reproducir sonido al acertar
+      playAudio(whackSound);
       setScore((prev) => prev + 1);
-      setActiveHole(null); // Oculta el topo inmediatamente al golpearlo
+      setActiveHole(null);
     }
   };
 
